@@ -5,5 +5,5 @@ def complex_delete(a_dictionary, value):
         if val == value:
             keys_delete.append(key)
     for key in keys_delete:
-        del a_dictioary[key]
+        del a_dictionary[key]
     return a_dictionary
