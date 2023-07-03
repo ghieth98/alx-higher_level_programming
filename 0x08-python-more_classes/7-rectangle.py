@@ -10,12 +10,16 @@ class Rectangle:
     """
     Create Rectangle class
     """
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """
         Initialize variables
         """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -63,6 +67,30 @@ class Rectangle:
         """
         method to get perimeter
         """
-        if self.width == 0 or self.height == 0:
-            return 0
-        return self.width * 2 + self.height * 2
+        return self.__width * 2 + self.__height * 2
+
+    def __str__(self):
+        """
+        print rectangle using #
+        """
+        string = ""
+        if self.__width == 0 or self.__height == 0:
+            string += "\n"
+            return
+        for i in range(self.__height):
+            string += str(self.print_symbol) * self.__width + "\n"
+        return string[:-1]
+
+    def __repr__(self):
+        """
+        print string representing width and height of rectangle
+        """
+        string = "Rectangle(" + str(self.width) + ", " + str(self.height) + ")"
+        return string
+
+    def __del__(self):
+        """
+        deletes rectangle
+        """
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
