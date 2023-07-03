@@ -1,16 +1,16 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 '''
-    A module that defines a rectangle
+    A module that define a Rectangle class.
 '''
 
 
 class Rectangle:
     '''
-        A Rectangle class that defines a rectangle
+        A Recatangle class that define a rectangle.
     '''
 
     def __init__(self) -> None:
         '''
-            Initialize a new instance
+            Initialized a new instance.
         '''
     pass
