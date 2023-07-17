@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+"""Module for unittests for Base class"""
+
 import unittest
 
 from models.base import Base
@@ -13,7 +16,7 @@ class TestBase(unittest.TestCase):
         b1 = Base()
         assert isinstance(b1, Base)
         assert hasattr(b1, 'id')
-        self.assertEqual(b1.id, 1)
+        self.assertEqual(b1.id, 3)
 
         b2 = Base(None)
         b3 = Base(None)
@@ -87,8 +90,8 @@ class TestBase(unittest.TestCase):
 
     def test_square_form_json_string(self):
         """Test converting square string to list"""
-        s1 = Square(10, 7, 2, 8, 1)
-        s2 = Square(10, 7, 2, 8, 1)
+        s1 = Square(10, 7, 2, 8)
+        s2 = Square(10, 7, 2, 8)
         Square.save_to_file([s1, s2])
         output_list = Square.load_from_file()
         self.assertEqual(str(s1), str(output_list[0]))
@@ -107,7 +110,7 @@ class TestBase(unittest.TestCase):
         Square.save_to_file([s, s2])
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(),
-                             '[{"id": 4, "size": 1, "x": 2, "y": 3}, {"id": 2, "size": 5, "x": 4, "y": 3}]')
+                             '[{"id": 4, "x": 2, "size": 1, "y": 3}, {"id": 2, "x": 4, "size": 5, "y": 3}]')
 
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as f:
